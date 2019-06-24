@@ -1,5 +1,8 @@
 package com.spring.cloud.limitservice.domain;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class LimitConfig {
 
     private int maximum;
