@@ -11,12 +11,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 // @FeignClient(name = "currency-exchange-service", url = "localhost:8000")
 
 // When we have multiple instance of currency-exchange-service
-@FeignClient(name = "currency-exchange-service")
+//@FeignClient(name = "currency-exchange-service")
+
+// feign will now connect with api gateway instead of directly calling currency-exchange-service
+@FeignClient(name = "netflix-zuul-api-gateway-server")
 
 // ribbon is used for load balance
 @RibbonClient(name = "currency-exchange-service")
 public interface CurrencyExchangeServiceProxy {
 
-    @GetMapping("/currency-exchange/from/{from}/to/{to}")
+    // call currency exchange service api
+    // @GetMapping("/currency-exchange/from/{from}/to/{to}")
+
+    // for api gateway /{application-name}/{api-uri}
+    @GetMapping("/currency-exchange-service/currency-exchange/from/{from}/to/{to}")
     CurrencyConversion retriveExchangeValue(@PathVariable String from , @PathVariable String to);
 }

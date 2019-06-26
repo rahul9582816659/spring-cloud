@@ -2,6 +2,8 @@ package com.spring.cloud.currencyconversionservice.api;
 
 import com.spring.cloud.currencyconversionservice.entity.CurrencyConversion;
 import com.spring.cloud.currencyconversionservice.feign.CurrencyExchangeServiceProxy;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +18,8 @@ import java.util.Map;
 
 @RestController
 public class CurrencyConversionAPI {
+
+    private Logger logger  = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private Environment environment;
@@ -48,6 +52,7 @@ public class CurrencyConversionAPI {
 
         // call feign
         CurrencyConversion response = currencyExchangeServiceProxy.retriveExchangeValue(from,to);
+        logger.info("{}", response);
 
         // return CurrencyConversion
         return new CurrencyConversion(response.getId(),from,to,response.getConversionMultiple(), quantity, quantity.multiply(response.getConversionMultiple()), response.getPort());

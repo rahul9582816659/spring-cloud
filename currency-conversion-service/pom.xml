@@ -55,6 +55,25 @@
 			<version>2.1.2.RELEASE</version>
 		</dependency>
 		<!--Ribbon is used for load balance -->
+
+		<!-- Eureka Client-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+		</dependency>
+		<!-- ClassNotFound Exception was coming, after adding this error gone  -->
+		<dependency>
+			<groupId>org.glassfish.jaxb</groupId>
+			<artifactId>jaxb-runtime</artifactId>
+		</dependency>
+		<!-- ClassNotFound Exception was coming, after adding this error gone  -->
+
+		<!-- Spring Cloud Sleuth : Assign unique id-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-sleuth</artifactId>
+		</dependency>
+		<!-- Spring Cloud Sleuth : Assign unique id-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
