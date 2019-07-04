@@ -40,6 +40,17 @@
 		</dependency>
 		<!-- Spring Cloud Sleuth : Assign unique id-->
 
+		<!-- Sleuth Zipkin : Log Messages in format that zipkin can understand for messaging & AMQP-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-sleuth-zipkin</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-bus-amqp</artifactId>
+		</dependency>
+		<<!-- Sleuth Zipkin : Log Messages in format that zipkin can understand for messaging & AMQP-->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
